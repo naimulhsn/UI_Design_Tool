@@ -79,15 +79,16 @@ void ShapeSizeShow()
 {
     int x = tmpP[0].x;
     int y = tmpP[0].y;
-    RenderText(300, Heightt(18), "  Size ");
+    int posx = mousePosX;
+    int posy = mousePosY;
+    if (posx > width - 60)posx = width - 60;
+    RenderText(posx, Height( mousePosY+35), "H: ");
+    RenderTextNumber(posx+20, mousePosY + 20, fabs(mousePosY - y), 1);
 
-    RenderText(300, Heightt(32), "[ W: ");
-    RenderTextNumber(340, height-100+18, fabs(mousePosX-x) ,1);
-    RenderText(370, Heightt(32), " ]");
+    RenderText(posx, Height(mousePosY + 55), "W: ");
+    RenderTextNumber(posx+20, mousePosY + 40, fabs(mousePosX-x) ,1);
 
-    RenderText(300, Heightt(46), "[ H: ");
-    RenderTextNumber(340, height-100+32, fabs(mousePosY - y) ,1 );
-    RenderText(370, Heightt(46), " ]");
+    
 }
 void instructions()
 {
@@ -122,6 +123,14 @@ void CurrentColor() {
 }
 
 void canvasBorder() {
+    glColor3f(0.95, 0.95, 0.95);
+    glBegin(GL_QUADS);
+    glVertex2i(0, Height(height - 100) );
+    glVertex2i(width, Height(height - 100) );
+    glVertex2i(width, Height(height) );
+    glVertex2i(0, Height(height) );   
+    glEnd();
+
     glLineWidth((float)2);
     glColor3f(0, 0, 0);
 
@@ -179,6 +188,8 @@ void draw() {
         glEnd();
     }
 
+    canvasBorder();
+
     if (tmpP.size() > 0) {
         glBegin(GL_QUADS);
         //color of the rectangle/ component
@@ -198,9 +209,11 @@ void draw() {
     }
     GuidLine();
     ShapeNumberings();
+    
+
     CurrentColor();
-    canvasBorder();
     instructions();
+
     glFlush();
 }
 
@@ -366,7 +379,8 @@ int main(int argc, char* argv[])
     int x, y;
     cout << "Enter UI window size [Width, Height] : ";
     cin >> x >> y;
-    cout << "Initialized Window.  Start Drawing your UI: \n";
+    cout << "Initialized Window.  Start Drawing your UI: \n\n";
+    cout << "After Drawing press 'S' in your keyboard to Save and View the coordinates here. \n";
     width = x; height = y+100;
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);

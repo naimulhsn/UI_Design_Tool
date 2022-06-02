@@ -1,6 +1,6 @@
 ﻿  Main.cpp
 E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(43,23): warning C4018: '<': signed/unsigned mismatch
 E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(53,23): warning C4018: '<': signed/unsigned mismatch
-E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(165,23): warning C4018: '<': signed/unsigned mismatch
-E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(274,27): warning C4018: '<': signed/unsigned mismatch
+E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(174,23): warning C4018: '<': signed/unsigned mismatch
+E:\Visual Studio Projects\opengl\UIDesignHelper\Main.cpp(287,27): warning C4018: '<': signed/unsigned mismatch
   UIDesignHelper.vcxproj -> E:\Visual Studio Projects\opengl\UIDesignHelper\Debug\UIDesignHelper.exe
